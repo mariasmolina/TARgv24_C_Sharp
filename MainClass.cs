@@ -92,10 +92,58 @@ namespace TARgv24_C
             // Küsi ristkülikukujulise toa seinte pikkused ning arvuta põranda pindala.
             // Küsi kasutajalt remondi tegemise soov, kui ta on positiivne, siis küsi kui palju maksab ruutmeeter ja leia põranda vahetamise hind
             Console.Write("Sisestage esimese seina pikkus:");
-            float a = int.Parse(Console.ReadLine());
+            double a = Convert.ToDouble(Console.ReadLine());
             Console.Write("Sisestage teise seina pikkus:");
-            float b = Console.ReadLine();
+            double b = Convert.ToDouble(Console.ReadLine());
+            double vastus = FunktsioonideClass.Korrutamine(a, b);
+            Console.WriteLine("Põranda pindala on " + vastus);
+            Console.Write("Kas soovite remodi teha?");
+            string vastus2 = Console.ReadLine();
+            if (vastus2.ToLower() == "jah")
+            {
+                Console.Write("Sisestage kui palju maksab ruutmeeter:");
+                double hind = Convert.ToDouble(Console.ReadLine());
+                double vastus3 = FunktsioonideClass.Korrutamine(hind, vastus);
+                Console.WriteLine("Põranda vahetamise hind on " + vastus3);
+            }
+            else
+            {
+                Console.WriteLine("Aitäh! Head aega!");
+            }
 
+            // Leia 30% hinnasoodustusega hinna põhjal alghind
+            Console.Write("Sisestage alghind: ");
+            double alghind = Convert.ToDouble(Console.ReadLine());
+            vastus = FunktsioonideClass.Hinnasoodustus(alghind);
+            Console.WriteLine("Soodustusega 30% lõpphind on " + vastus);
+
+            // Küsi temperatuur ning teata, kas see on üle kaheksateistkümne kraadi (soovitav toasoojus talvel).
+            Console.Write("Sisestage toa temperatuur: ");
+            int temp = int.Parse(Console.ReadLine());
+            vastus2 = FunktsioonideClass.Temperatuur(temp);
+            Console.WriteLine(vastus2);
+
+            // Küsi inimese pikkus ning teata, kas ta on lühike, keskmine või pikk (piirid pane ise paika)
+            Console.Write("Sisestage oma pikkus: ");
+            int pikkus = int.Parse(Console.ReadLine());
+            vastus2 = FunktsioonideClass.Pikkus(pikkus);
+            Console.WriteLine(vastus2);
+
+            // Küsi inimeselt pikkus ja sugu ning teata, kas ta on lühike, keskmine või pikk (mitu tingimusplokki võib olla üksteise sees).
+            Console.Write("Sisestage oma pikkus: ");
+            pikkus = int.Parse(Console.ReadLine());
+            Console.Write("Sisestage oma sugu: ");
+            string sugu = Console.ReadLine();
+            vastus2 = FunktsioonideClass.PikkusSugu(pikkus, sugu);
+            Console.WriteLine(vastus2);
+
+            // Küsi inimeselt poes eraldi kas ta soovib osta piima, saia, leiba. Löö hinnad kokku ning teata, mis kõik ostetud kraam maksma läheb.
+            Console.Write("Kas te soovite osta piima?(jah/ei) ");
+            string piim_vastus=Console.ReadLine();
+            Console.Write("Kas te soovite osta saia?(jah/ei) ");
+            string sai_vastus = Console.ReadLine();
+            Console.Write("Kas te soovite osta leiba?(jah/ei) ");
+            string leib_vastus = Console.ReadLine();
         }
     }
 }
