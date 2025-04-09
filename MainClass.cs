@@ -10,8 +10,26 @@ namespace TARgv24_C
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("Hello World! Привет! Tere päevast!");
             // I. osa Andmetüübid, If, Case, Random, Alamfunktsioonid
+            int a = 0;
+            string tekst = "Python";
+            char taht = 'A';
+            double arv = 5.45435333353;
+            float arv1 = 2;
+            Console.Write("Mis on sinu nimi? ");
+            tekst = Console.ReadLine();
+            Console.WriteLine("Tere!\n"+tekst);
+            Console.WriteLine("\nTere {0}!",tekst);
+            Console.WriteLine("Arv 2: ");
+            int arv2 = int.Parse(Console.ReadLine());
+            // Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);
+            arv1=FunktsioonideClass.Kalkulaator(a, arv2);
+            Console.WriteLine(arv1);
+
         }
     }
 }
