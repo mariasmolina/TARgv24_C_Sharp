@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,26 @@ namespace TARgv24_C
                     break;
             }
             return tekst;
+        }
+
+        public static string Pinginaabrid(string a, string b)
+        {
+            string vastus;
+
+            if (a.ToLower() == "maria" && b.ToLower() == "jevgeni" || a.ToLower() == "jevgeni" && b.ToLower() == "maria")
+            {
+                vastus = "Need inimesed on pinginaabrid!";
+            }
+            else
+            {
+                vastus = "Need inimesed ei ole pinginaabrid1";
+            }
+            return vastus;
+        }
+
+        public static float PorandaPindala(float a, float b)
+        {
+
         }
     }
 }
