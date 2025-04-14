@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace TARgv24_C
+namespace TARgv24_C_Sharp
 {
     class FunktsioonideClass
     {
@@ -39,6 +39,34 @@ namespace TARgv24_C
             return tekst;
         }
 
+        public static string VanusePilet(int vanus)
+        {
+            string vastus;
+
+            if (vanus <= 0 || vanus > 100)  // && - and, || - or
+            {
+                vastus = "Viga!";
+            }
+            else if (vanus > 0 && vanus <= 6)
+            {
+                vastus = "Tasuta";
+            }
+            else if (vanus < 15)
+            {
+                vastus = "Lastepilet";
+            }
+            else if (vanus >= 15 && vanus < 65)
+            {
+                vastus = "Täispilet!";
+            }
+            else
+            {
+                vastus = "Sooduspilet!";
+            }
+
+            return vastus;
+        }
+
         public static string Pinginaabrid(string a, string b)
         {
             string vastus;
@@ -49,7 +77,7 @@ namespace TARgv24_C
             }
             else
             {
-                vastus = "Need inimesed ei ole pinginaabrid1";
+                vastus = "Need inimesed ei ole pinginaabrid!";
             }
             return vastus;
         }
@@ -107,7 +135,7 @@ namespace TARgv24_C
                 {
                     vastus = "Pikkus " + pikkus + " cm, te olete lühikest kasvu meeste jaoks";
                 }
-                else if (pikkus >= 160 || pikkus < 175)
+                else if (pikkus >= 160 && pikkus < 175)
                 {
                     vastus = "Pikkus " + pikkus + " cm, te olete keskmist kasvu meeste jaoks";
                 }
@@ -122,7 +150,7 @@ namespace TARgv24_C
                 {
                     vastus = "Pikkus " + pikkus + " cm, te olete lühikest kasvu naiste jaoks";
                 }
-                else if (pikkus >= 160 || pikkus < 170)
+                else if (pikkus >= 150 && pikkus < 170)
                 {
                     vastus = "Pikkus " + pikkus + " cm, te olete keskmist kasvu naiste jaoks";
                 }
@@ -138,21 +166,40 @@ namespace TARgv24_C
 
             return vastus;
         }
-        public static string Pood(string vastus1, string vastus2, string vastus3)
+        public static string Ostukorv(int piim_kogus, int sai_kogus, int leib_kogus)
         {
-            string vastus;
-            if (vastus1.ToLower() = "jah")
+            Random rnd = new Random();
+            double piim_hind = Math.Round(rnd.NextDouble() * 1.5 + 0.5, 2);
+            double sai_hind = Math.Round(rnd.NextDouble() * 1.5 + 0.5, 2);
+            double leib_hind = Math.Round(rnd.NextDouble() * 1.5 + 0.5, 2);
+
+            double piim_summa = piim_kogus * piim_hind;
+            double sai_summa = sai_kogus * sai_hind;
+            double leib_summa = leib_kogus * leib_hind;
+            double summa = piim_summa + sai_summa + leib_summa;
+
+            if (summa == 0)
             {
-                float hind1 = ;
+                return "Te ei ostnud midagi. Head aega!";
             }
-            else if (a >= 160 || a < 175)
+
+            string vastus = "Ostutšekk\n";
+            if (piim_kogus > 0) 
             {
-                vastus = "Pikkus " + a + " cm, te olete keskmist kasvu";
+                vastus += "Piim: "+piim_kogus+" tk - "+piim_summa+" €\n";
             }
-            else
+            if (sai_kogus > 0)
             {
-                vastus = "Pikkus " + a + " cm, te olete pikka kasvu";
+                vastus += "Sai: " + sai_kogus + " tk - " + sai_summa + " €\n";
             }
+
+            if (leib_kogus > 0)
+            {
+                vastus += "Leib: " + leib_kogus + " tk - " + leib_summa + " €\n";
+            }
+
+            vastus += "Kokku: " + Math.Round(summa,2) + " €";
+
             return vastus;
         }
 
