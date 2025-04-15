@@ -6,6 +6,7 @@
     <RootNamespace>TARgv24_C_Sharp</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>TARgv24_C_Sharp.Madu.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
