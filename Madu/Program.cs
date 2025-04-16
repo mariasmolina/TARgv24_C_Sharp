@@ -26,7 +26,8 @@ namespace TARgv24_C_Sharp.Madu
 
             // Отрисовка точек
             Point p = new Point(4, 5, '*');
-            p.Draw();
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Drow();
 
             Console.ReadKey();
         }
