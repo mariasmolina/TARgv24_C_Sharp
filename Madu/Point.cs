@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp.Madu
 {
+    /* Класс Point описывает точку на экране с координатами (x, y) и символом sym.
+    Предоставляет методы для перемещения точки, отображения, очистки и проверки на совпадение координат */
     class Point
     {
         public int x;

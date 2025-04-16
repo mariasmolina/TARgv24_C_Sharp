@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,8 @@ using TARgv24_C_Sharp.Madu;
 
 namespace TARgv24_C_Sharp.Madu
 {
-    class Walls    // класс хранит все стены, для обработки столкновения змейки
+    // Класс Walls отвечает за создание и отрисовку стен, а также проверку столкновений с ними
+    class Walls
     {
         List<Figure> wallList;  // список фигур
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,7 +9,9 @@ using System.Xml.Linq;
 
 namespace TARgv24_C_Sharp.Madu
 {
-    class Snake : Figure
+    /* Класс Snake реализует поведение змейки: её движение, управление, 
+     поедание еды и проверку на столкновения с хвостом */
+    class Snake : Figure  // наследник класса Figure
     {
         Direction direction;  // класс хранит данные - направление
 

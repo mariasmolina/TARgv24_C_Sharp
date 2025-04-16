@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp.Madu
 {
-    class Figure   // базовый класс фигуры
+    /* Класс Figure — хранит список точек pList, предоставляет методы для отрисовки фигуры и проверки пересечений */
+    class Figure   // базовый класс, по отношению к его наследникам (Snake, HorizontalLine, VerticalLine)
     {
         protected List<Point> pList;
 
@@ -18,7 +19,8 @@ namespace TARgv24_C_Sharp.Madu
             }
         }
 
-        internal bool IsHit(Figure figure)  // принимает фигуру, есть ли пересечение фигуры с точкой
+        // проверяет пересечение с другой фигурой
+        internal bool IsHit(Figure figure)  // принимает фигуру
         {
             foreach (var p in pList)
             {
@@ -28,7 +30,8 @@ namespace TARgv24_C_Sharp.Madu
             return false;
         }
 
-        private bool IsHit(Point point)  // принимает точку, есть ли пересечение точки с точкой
+        // проверяет пересечение с конкретной точкой
+        private bool IsHit(Point point)  // принимает точку
         {
             foreach (var p in pList)
             {

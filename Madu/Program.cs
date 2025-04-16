@@ -1,11 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// OOP - инкапсуляция, наследование, полиморфизм
+
 namespace TARgv24_C_Sharp.Madu
 {
+    /* Класс Program запускает игру "Змейка": создаёт стены, змейку и еду,
+     обрабатывает столкновения, нажатия клавиш и выводит экран окончания игры */
     class Program
     {
         static void Main(string[] args)
@@ -50,6 +54,30 @@ namespace TARgv24_C_Sharp.Madu
                     snake.HandleKey(key.Key);
                 }
             }
+            WriteGameOver();
+            Console.ReadLine();
+        }
+
+        // выводит сообщение об окончании игры в консоли
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("G A M E    O V E R", xOffset + 5, yOffset++);
+            yOffset++;
+            WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
+            WriteText("Game - Snake", xOffset + 8, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        // выводит текст в указанной позиции
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
         }
     }
 }

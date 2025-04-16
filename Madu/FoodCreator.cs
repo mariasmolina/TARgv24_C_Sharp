@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp.Madu
 {
+    // Класс FoodCreator отвечает за создание еды в случайной позиции на карте
     class FoodCreator
     {
         int mapWidth;
