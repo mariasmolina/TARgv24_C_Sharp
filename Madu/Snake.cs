@@ -36,7 +36,7 @@ namespace TARgv24_C_Sharp.Madu
             head.Draw();
         }
         
-        public Point GetNextPoint()
+        public Point GetNextPoint()  // вычисляет, в какой точке находится змейка в следующий момент
         {
             Point head = pList.Last();  // текущая позиция головы змейки, до того, как она переместилась
             Point nextPoint = new Point(head); // создана копия точки (предыдущего положения головы)
@@ -54,6 +54,21 @@ namespace TARgv24_C_Sharp.Madu
                 direction = Direction.DOWN;
             else if (key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))  // если голова змейки совпадает по координатам с едой
+            {
+                food.sym = head.sym;  // символ еды становится * и добавляется в список
+                pList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -46,6 +46,11 @@ namespace TARgv24_C_Sharp.Madu
             }
         }
 
+        public bool IsHit(Point p)  // проверка на равенство координат текущей точки с той, что передается в качестве аргумента
+        {
+            return p.x == this.x && p.y == this.y;
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
