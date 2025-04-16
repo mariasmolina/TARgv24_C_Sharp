@@ -25,13 +25,20 @@ namespace TARgv24_C_Sharp.Madu
             rightLine.Drow();
 
             // Отрисовка точек
-            Point p = new Point(4, 5, '*'); // x, y, символ
+            Point p = new Point(4, 5, '*');  // x, y, символ
             Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
             snake.Drow();
-            snake.Move();
-         
 
-            Console.ReadKey();
+            while (true)  // обработка нажатия клавиш
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep (100);
+                snake.Move();
+            }
         }
     }
 }

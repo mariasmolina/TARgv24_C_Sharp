@@ -5,12 +5,14 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TARgv24_C_Sharp.Madu
 {
     class Snake : Figure
     {
         Direction direction;  // класс хранит данные - направление
+
         public Snake(Point tail, int lenght, Direction _direction)
         {
             direction = _direction;
@@ -40,6 +42,18 @@ namespace TARgv24_C_Sharp.Madu
             Point nextPoint = new Point(head); // создана копия точки (предыдущего положения головы)
             nextPoint.Move(1, direction);
             return nextPoint;  // новое положение головы змейки
+        }
+
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+                direction = Direction.LEFT;
+            else if (key == ConsoleKey.RightArrow)
+                direction = Direction.RIGHT;
+            else if (key == ConsoleKey.DownArrow)
+                direction = Direction.DOWN;
+            else if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
         }
     }
 }
