@@ -11,11 +11,47 @@ namespace TARgv24_C_Sharp
     {
         public static void Main(string[] args)
         {
+            // II. osa Kordused, Massivid, Listid, Klassid
+
+            int i;
+            for (i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("-------------------");
+            for (int j = i; j > 0; j--)
+            {
+                Console.WriteLine(j);
+            }
+            Console.WriteLine("-------------------");
+            while (i>=0)
+            {
+                Console.WriteLine(i);
+                i--;
+            }
+            Console.WriteLine("--------- do ----------");
+            ConsoleKeyInfo key = new ConsoleKeyInfo();
+            do
+            {
+                Console.WriteLine("Väljuta Backspace");
+                key= Console.ReadKey();
+            }
+            while (key.Key!=ConsoleKey.Backspace);
+
+
+            Console.ReadKey();
+
+
+            ///////////////////////////////////////////////////////////////////////////
+
+
+            /* I. osa Andmetüübid, If, Case, Random, Alamfunktsioonid
+            
             Console.BackgroundColor = ConsoleColor.Green;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Hello World! Привет! Tere päevast!");
-            // I. osa Andmetüübid, If, Case, Random, Alamfunktsioonid
+
             int a = 0;
             string tekst = "Python";
             char taht = 'A';
@@ -34,7 +70,7 @@ namespace TARgv24_C_Sharp
                 {
                     Console.WriteLine("{0}\n Kui vana sa oled?", tekst);
                     int vanus = int.Parse(Console.ReadLine());
-                    string pilet_vastus = FunktsioonideClass.VanusePilet(vanus);
+                    string pilet_vastus = FunktsioonideClass_1osa.VanusePilet(vanus);
                     Console.WriteLine(pilet_vastus);
                 }
                 catch (Exception e)
@@ -50,7 +86,7 @@ namespace TARgv24_C_Sharp
             Console.WriteLine("Arv 2: ");
             int arv2 = int.Parse(Console.ReadLine());
             // Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);
-            arv1 = FunktsioonideClass.Kalkulaator(a, arv2);
+            arv1 = FunktsioonideClass_1osa.Kalkulaator(a, arv2);
             Console.WriteLine(arv1);
 
             Console.WriteLine("Switch'i kasutamine");
@@ -58,7 +94,7 @@ namespace TARgv24_C_Sharp
             a = rnd.Next(1, 7);
             Console.WriteLine(a);
 
-            tekst = FunktsioonideClass.switchKasuta(a);
+            tekst = FunktsioonideClass_1osa.switchKasuta(a);
             Console.WriteLine(tekst);
 
             Console.ReadKey();
@@ -69,7 +105,7 @@ namespace TARgv24_C_Sharp
             string nimi1 = Console.ReadLine();
             Console.Write("Sisesta teine nimi:");
             string nimi2 = Console.ReadLine();
-            string nimi_vastus = FunktsioonideClass.Pinginaabrid(nimi1, nimi2);
+            string nimi_vastus = FunktsioonideClass_1osa.Pinginaabrid(nimi1, nimi2);
             Console.WriteLine(nimi_vastus);
 
 
@@ -96,7 +132,7 @@ namespace TARgv24_C_Sharp
                 Console.WriteLine(e);
             }
 
-            double vastus = FunktsioonideClass.Korrutamine(c, d);
+            double vastus = FunktsioonideClass_1osa.Korrutamine(c, d);
             Console.WriteLine("Põranda pindala on " + vastus);
             Console.Write("Kas soovite remodi teha?");
             string vastus2 = Console.ReadLine();
@@ -106,7 +142,7 @@ namespace TARgv24_C_Sharp
                 {
                     Console.Write("Sisestage kui palju maksab ruutmeeter:");
                     double hind = Convert.ToDouble(Console.ReadLine());
-                    double vastus3 = FunktsioonideClass.Korrutamine(hind, vastus);
+                    double vastus3 = FunktsioonideClass_1osa.Korrutamine(hind, vastus);
                     Console.WriteLine("Põranda vahetamise hind on " + vastus3);
                 }
                 catch (Exception e)
@@ -125,7 +161,7 @@ namespace TARgv24_C_Sharp
             {
                 Console.Write("Sisestage alghind: ");
                 double alghind = Convert.ToDouble(Console.ReadLine());
-                vastus = FunktsioonideClass.Hinnasoodustus(alghind);
+                vastus = FunktsioonideClass_1osa.Hinnasoodustus(alghind);
                 Console.WriteLine("Soodustusega 30% lõpphind on " + vastus);
             }
             catch (Exception e)
@@ -139,7 +175,7 @@ namespace TARgv24_C_Sharp
             {
                 Console.Write("Sisestage toa temperatuur: ");
                 int temp = int.Parse(Console.ReadLine());
-                vastus2 = FunktsioonideClass.Temperatuur(temp);
+                vastus2 = FunktsioonideClass_1osa.Temperatuur(temp);
                 Console.WriteLine(vastus2);
             }
             catch (Exception e)
@@ -154,7 +190,7 @@ namespace TARgv24_C_Sharp
             {
                 Console.Write("Sisestage oma pikkus: ");
                 pikkus = int.Parse(Console.ReadLine());
-                vastus2 = FunktsioonideClass.Pikkus(pikkus);
+                vastus2 = FunktsioonideClass_1osa.Pikkus(pikkus);
                 Console.WriteLine(vastus2);
             }
             catch (Exception e)
@@ -175,7 +211,7 @@ namespace TARgv24_C_Sharp
             }
             Console.Write("Sisestage oma sugu: ");
             string sugu = Console.ReadLine();
-            vastus2 = FunktsioonideClass.PikkusSugu(pikkus, sugu);
+            vastus2 = FunktsioonideClass_1osa.PikkusSugu(pikkus, sugu);
             Console.WriteLine(vastus2);
 
 
@@ -229,8 +265,8 @@ namespace TARgv24_C_Sharp
                 }
             }
 
-            string ostutsekk = FunktsioonideClass.Ostukorv(piim_kogus, sai_kogus, leib_kogus);
-            Console.WriteLine("\n" + ostutsekk);
+            string ostutsekk = FunktsioonideClass_1osa.Ostukorv(piim_kogus, sai_kogus, leib_kogus);
+            Console.WriteLine("\n" + ostutsekk);*/
         }
     }
 }

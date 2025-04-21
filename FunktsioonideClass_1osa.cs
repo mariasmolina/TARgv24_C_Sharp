@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace TARgv24_C_Sharp
 {
-    class FunktsioonideClass
+    class FunktsioonideClass_1osa
     {
         public static float Kalkulaator(int arv1, int arv2)
         {
