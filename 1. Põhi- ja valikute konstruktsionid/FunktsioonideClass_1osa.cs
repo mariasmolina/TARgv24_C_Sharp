@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace TARgv24_C_Sharp
+namespace TARgv24_C_Sharp._1._Põhi__ja_valikute_konstruktsionid
 {
     class FunktsioonideClass_1osa
     {

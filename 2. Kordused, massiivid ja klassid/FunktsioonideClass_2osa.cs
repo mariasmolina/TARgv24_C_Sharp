@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TARgv24_C_Sharp
+namespace TARgv24_C_Sharp._2._Kordused__massiivid_ja_klassid
 {
     internal class FunktsioonideClass_2osa
     {
