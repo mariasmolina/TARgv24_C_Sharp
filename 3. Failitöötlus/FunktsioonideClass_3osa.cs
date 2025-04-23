@@ -54,14 +54,16 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
             kuude_list.Remove("Juuni");
 
             if (kuude_list.Count > 0)
-                kuude_list[0] = "Veeel kuuu";
+                Console.WriteLine("Sisesta kuu nimi, mida soovide lisada esimesena elemendina:");
+                string kuu_vastus = Console.ReadLine();
+                kuude_list[0] = kuu_vastus;
 
             Console.WriteLine("--------------Kustutasime juuni-----------");
         }
 
     public static string Otsing(string otsitav_kuu, List<string> kuude_list)
         {
-            string vastus = "";
+            string vastus;
             if (kuude_list.Contains(otsitav_kuu))
                 vastus = "Kuu " + otsitav_kuu + " on olemas.";
             else
