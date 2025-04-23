@@ -15,7 +15,7 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
             // ------- Faili kirjutamine(StreamWriter) -------
             try
             {
-                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\Kuud.txt"); //@"..\..\..\Kuud.txt"
+                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\Kuud.txt"); //@"..\..\..\Kuud.txt"
                 using (StreamWriter text = new StreamWriter(path, true))  // Fail suletakse automaatselt siin
                 {
                     Console.WriteLine("Sisesta mingi tekst: ");
@@ -32,7 +32,7 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
             // ------ Faili lugemine (StreamReader) --------
             try
             {
-                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\Kuud.txt");
+                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\Kuud.txt");
                 StreamReader text = new StreamReader(path);
                 string laused = text.ReadToEnd();
                 text.Close();
@@ -48,7 +48,7 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
             List<string> kuude_list = new List<string>();
             try
             {
-                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\Kuud.txt");
+                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\Kuud.txt");
                 foreach (string rida in File.ReadAllLines(path))
                 {
                     kuude_list.Add(rida);

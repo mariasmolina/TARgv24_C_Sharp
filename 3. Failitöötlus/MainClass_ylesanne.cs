@@ -10,7 +10,7 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
     {
         public static void Main(string[] args)
         {
-
+            string path=FunktsioonideClass_3osa.FailiPath(@"C:\\Users\\opilane\\Source\\Repos\\TARgv24_C_Sharp\\3. Failitöötlus\\");
         }
     }
 }
