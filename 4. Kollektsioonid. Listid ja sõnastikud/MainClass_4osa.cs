@@ -73,6 +73,14 @@ namespace TARgv24_C_Sharp._4._Kollektsioonid._Listid_ja_sõnastikud
             string pealinn = riigid[2];
             riigid[2] = "Eestimaa";
             riigid.Remove(3);
+
+
+            Dictionary<char, Person> inimesed = new Dictionary<char, Person>();
+            inimesed.Add('k', new Person() { Name = "Kadi" });
+            inimesed.Add('m', new Person() { Name = "Mait" });
+
+            foreach (var entry in inimesed)
+                Console.WriteLine($"{entry.Key} - {entry.Value.Name}");
         }
     }
 }
