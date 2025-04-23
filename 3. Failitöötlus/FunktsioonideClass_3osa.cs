@@ -58,5 +58,22 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
 
             Console.WriteLine("--------------Kustutasime juuni-----------");
         }
+
+    public static string Otsing(string otsitav_kuu, List<string> kuude_list)
+        {
+            string vastus = "";
+            if (kuude_list.Contains(otsitav_kuu))
+                vastus = "Kuu " + otsitav_kuu + " on olemas.";
+            else
+                vastus = "Sellist kuud pole.";
+
+            return vastus;
+        }
+
+    public static void Salvestamine(string path, List<string> kuude_list)
+        {
+            File.WriteAllLines(path, kuude_list);
+            Console.WriteLine("Andmed on salvestatud.");
+        }
     }
 }

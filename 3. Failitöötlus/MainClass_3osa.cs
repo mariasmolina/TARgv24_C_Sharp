@@ -95,13 +95,6 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
             path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Kuud.txt");
             File.WriteAllLines(path, kuude_list);
             Console.WriteLine("Andmed on salvestatud.");
-
-
-
-            ///////////////////////////////////////////////////
-            
-            // ------ Ülesanne ------
-
         }
     }
 }
