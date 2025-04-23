@@ -58,7 +58,5 @@ namespace TARgv24_C_Sharp._3._Failitöötlus
 
             Console.WriteLine("--------------Kustutasime juuni-----------");
         }
-
-    public static void 
     }
 }
