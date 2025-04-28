@@ -13,76 +13,82 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             /************************************************************/
             // Ülesanne 1 - Juhuslike arvude ruudud (Случайные квадраты чисел)
 
-            //(int[] ruudud, int[] arvud) = ArvuTöötlus.GenereeriRuudud(-100, 100); // получаем два массива
+            (int[] ruudud, int[] arvud) = ArvuTöötlus.GenereeriRuudud(-100, 100); // получаем два массива
 
-            //for (int i = 0; i < ruudud.Length; i++)
-            //{
-            //    Console.WriteLine($"{arvud[i]} -> {ruudud[i]}");
-            //}
+            for (int i = 0; i < ruudud.Length; i++)
+            {
+                Console.WriteLine($"{arvud[i]} -> {ruudud[i]}");
+            }
 
-            //Console.ReadKey();
+            Console.ReadKey();
 
 
 
             /************************************************************/
             // Ülesanne 4 - "Osta elevant ära!"
-            //static void KuniMärksõnani(string märksõna, string fraas)
-            //{
-            //    List<string> vastused = new List<string>();
-            //    string sisend;
-            //    do
-            //    {
-            //        Console.Write($"\n{fraas}\nSisesta märksõna: ");
-            //        sisend = Console.ReadLine();
-            //        vastused.Add(sisend);
+            static void KuniMärksõnani(string märksõna, string fraas)
+            {
+                List<string> vastused = new List<string>();
+                string sisend;
+                do
+                {
+                    Console.Write($"\n{fraas}\nSisesta märksõna: ");
+                    sisend = Console.ReadLine();
+                    vastused.Add(sisend);
 
-            //        if (sisend == märksõna)
-            //        {
-            //            Console.WriteLine("Õige vastus, tubli!");
-            //        }
+                    if (sisend == märksõna)
+                    {
+                        Console.WriteLine("Õige vastus, tubli!");
+                    }
 
-            //    } while (sisend != märksõna);
+                } while (sisend != märksõna);
 
-            //    Console.WriteLine("\nKõik sisetatud vastused:");
-            //    foreach (var vastus in vastused)
-            //    {
-            //        Console.WriteLine(vastus);
-            //    }
-            //}
+                Console.WriteLine("\nKõik sisetatud vastused:");
+                foreach (var vastus in vastused)
+                {
+                    Console.WriteLine(vastus);
+                }
+            }
 
-            //KuniMärksõnani("elevant", "Osta elevant ära!");
+            KuniMärksõnani("elevant", "Osta elevant ära!");
 
 
 
             /************************************************************/
             // Ülesanne 5 - Arvamise mäng
 
-            //static void ArvaArv()
-            //{
-            //    Random rnd = new Random();
-            //    int arv = rnd.Next(1, 101);
-            //    int katsed = 5;
-            //    int vastus;
+            static void ArvaArv()
+            {
+                Random rnd = new Random();
+                int arv = rnd.Next(1, 101);
+                int katsed = 5;
+                int vastus;
 
-            //    do
-            //    {
-            //        Console.Write("Arva ära arv (1-100): ");
-            //        vastus = int.Parse(Console.ReadLine());
+                do
+                {
+                    Console.Write("Arva ära arv (1-100): ");
+                    vastus = int.Parse(Console.ReadLine());
 
-            //        if (vastus > arv) Console.WriteLine("Liiga suur!");
-            //        else if (vastus < arv) Console.WriteLine("Liiga väike!");
-            //        else
-            //        {
-            //            Console.WriteLine("\nÕige arv!");
-            //            return;
-            //        }
-            //        katsed--;
-            //    } while (katsed > 0);
+                    if (vastus > arv)
+                    {
+                        Console.WriteLine("Liiga suur!");
+                    }
+                    else if (vastus < arv)
+                    {
+                        Console.WriteLine("Liiga väike!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nÕige arv!");
+                        return;
+                    }
+                    katsed--;
+                } while (katsed > 0);
 
-            //    Console.WriteLine($"\nKaotasid! Õige arv oli {arv}");
-            //}
+                Console.WriteLine($"\nKaotasid! Õige arv oli {arv}");
+            }
 
-            //ArvaArv();
+            ArvaArv();
 
 
 
@@ -93,11 +99,15 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
 
             // Ruut (for)
             for (int i = 0; i < arvud.Length; i++)
+            {
                 Console.WriteLine($"{arvud[i]} ruut on {arvud[i] * arvud[i]}");
+            }
 
             // Kahekordne väärtus (foreach)
             foreach (var arv in arvud)
+            {
                 Console.WriteLine($"{arv} kahekordne väärtus on {arv * 2}");
+            }
 
             // Kui palju on arvude seas arve, mis jaguvad 3-ga (while)
             int arvudeKogus = 0;
@@ -121,6 +131,36 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             }
 
 
+
+            /************************************************************/
+            // Ülesanne 10 - Positiivsed ja negatiivsed
+
+            int[] arvud_2 = { 5, -3, 0, 8, -1, 4, -7, 2, 0, -5, 6, 9 };
+
+            int positiivsed = 0, negatiivsed = 0, nullid = 0;
+
+            foreach (var arv in arvud_2)
+            {
+                if (arv > 0)
+                {
+                    positiivsed = positiivsed + 1;
+                }
+                else
+                {
+                    if (arv < 0)
+                    {
+                        negatiivsed = negatiivsed + 1;
+                    }
+                    else
+                    {
+                        nullid = nullid + 1;
+                    }
+                }
+            }
+
+            Console.WriteLine($"Positiivseid arve: {positiivsed}");
+            Console.WriteLine($"Negatiivseid arve: {negatiivsed}");
+            Console.WriteLine($"Nulle: {nullid}");
 
 
             Console.ReadKey();
