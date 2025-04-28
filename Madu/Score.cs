@@ -20,7 +20,7 @@ namespace TARgv24_C_Sharp.Madu
         {
             PlayerName = playerName;
             Points = 0;
-            filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\Vastused.txt");
+            filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\resources\results.txt");
             Draw();
         }
 
@@ -105,7 +105,7 @@ namespace TARgv24_C_Sharp.Madu
         public static void showScoreBoard()
         {
             // Чтение и заполнение словаря
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\Vastused.txt");
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\resources\results.txt");
            
             try
             {
