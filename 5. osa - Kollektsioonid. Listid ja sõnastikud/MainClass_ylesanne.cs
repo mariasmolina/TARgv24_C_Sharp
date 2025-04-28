@@ -72,51 +72,54 @@ namespace TARgv24_C_Sharp._5._osa___Kollektsioonid._Listid_ja_sõnastikud
             /********************************************************************************/
             // Ülesanne 2 – Maakonnad ja pealinnad (sõnastik ja test)
 
-            Console.WriteLine("\n\n--- Ülesanne 2 ---");
+            //Console.WriteLine("\n\n--- Ülesanne 2 ---");
 
-            while (true)
-            {
-                Console.WriteLine("\n--- Maakonnad ja pealinnad ---");
-                Console.WriteLine("1. Otsi maakonda või linna");
-                Console.WriteLine("2. Lisa uus maakond");
-                Console.WriteLine("3. Mängurežiim");
-                Console.WriteLine("4. Kuvada kõik maakonnad ja pealinnad");
-                Console.WriteLine("5. Välju");
+            //while (true)
+            //{
+            //    Console.WriteLine("\n--- Maakonnad ja pealinnad ---");
+            //    Console.WriteLine("1. Otsi maakonda või linna");
+            //    Console.WriteLine("2. Lisa uus maakond");
+            //    Console.WriteLine("3. Mängurežiim");
+            //    Console.WriteLine("4. Kuvada kõik maakonnad ja pealinnad");
+            //    Console.WriteLine("5. Välju");
 
-                Console.Write("\nVali tegevus: ");
-                string valik = Console.ReadLine();
+            //    Console.Write("\nVali tegevus: ");
+            //    string valik = Console.ReadLine();
 
-                if (valik == "1")
-                {
-                    FunktsioonideClass_5osa.OtsiMaakondLinn();
-                }
-                else if (valik == "2")
-                {
-                    FunktsioonideClass_5osa.LisaUusMaakond();
-                }
-                else if (valik == "3")
-                {
-                    FunktsioonideClass_5osa.ManguReziim();
-                }
-                else if (valik == "4")
-                {
-                    FunktsioonideClass_5osa.KuvaKoik();
-                }
-                else if (valik == "5")
-                {
-                    Console.WriteLine("Head aega!");
-                    break;  // выходим из цикла
-                }
-                else
-                {
-                    Console.WriteLine("Vale valik. Proovi uuesti.");
-                }
-            }
+            //    if (valik == "1")
+            //    {
+            //        FunktsioonideClass_5osa.OtsiMaakondLinn();
+            //    }
+            //    else if (valik == "2")
+            //    {
+            //        FunktsioonideClass_5osa.LisaUusMaakond();
+            //    }
+            //    else if (valik == "3")
+            //    {
+            //        FunktsioonideClass_5osa.ManguReziim();
+            //    }
+            //    else if (valik == "4")
+            //    {
+            //        FunktsioonideClass_5osa.KuvaKoik();
+            //    }
+            //    else if (valik == "5")
+            //    {
+            //        Console.WriteLine("Head aega!");
+            //        break;  // выходим из цикла
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Vale valik. Proovi uuesti.");
+            //    }
+            //}
 
 
 
             /********************************************************************************/
             // Ülesanne 3 – Õpilased ja hinnete analüüs
+
+            Console.WriteLine("\n\n--- Ülesanne 3 ---");
+
 
         }
     }
