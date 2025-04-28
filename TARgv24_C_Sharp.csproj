@@ -6,7 +6,7 @@
     <RootNamespace>TARgv24_C_Sharp</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>TARgv24_C_Sharp._4._Kollektsioonid._Listid_ja_sõnastikud.MainClass_ylesanne</StartupObject>
+    <StartupObject>TARgv24_C_Sharp.Madu.Program</StartupObject>
   </PropertyGroup>
 
 </Project>

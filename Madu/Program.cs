@@ -18,6 +18,14 @@ namespace TARgv24_C_Sharp.Madu
             Console.SetWindowSize(80, 25);
             Console.SetBufferSize(80, 25);
 
+            // спрашиваем имя игрока и создаём объект Score
+            Console.Clear();
+            Console.SetCursorPosition(30, 10);
+            Console.Write("Sisesta oma nimi: ");
+            string playerName = Console.ReadLine();
+            Console.Clear();
+            Score score = new Score(playerName);
+
             Walls walls = new Walls(80, 25); 
             walls.Draw();
 
@@ -41,6 +49,7 @@ namespace TARgv24_C_Sharp.Madu
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
+                    score.Add(10);
                 }
                 else
                 {
@@ -54,30 +63,40 @@ namespace TARgv24_C_Sharp.Madu
                     snake.HandleKey(key.Key);
                 }
             }
-            WriteGameOver();
+
+            WriteGameOver(playerName, score.Points);
+            score.Save();
+            // ждём нажатия клавиши
+            ConsoleKeyInfo scoreKey = Console.ReadKey();
+            if (scoreKey.Key == ConsoleKey.DownArrow)
+            {
+                Score.showScoreBoard(); // показываем таблицу лидеров
+            }
+
             Console.ReadLine();
         }
 
         // выводит сообщение об окончании игры в консоли
-        static void WriteGameOver()
+        static void WriteGameOver(string playerName, int points)
         {
             int xOffset = 25;
-            int yOffset = 8;
+            int yOffset = 5;
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(xOffset, yOffset++);
-            WriteText("============================", xOffset, yOffset++);
-            WriteText("G A M E    O V E R", xOffset + 5, yOffset++);
-            yOffset++;
-            WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
-            WriteText("Game - Snake", xOffset + 8, yOffset++);
-            WriteText("============================", xOffset, yOffset++);
-        }
 
-        // выводит текст в указанной позиции
-        static void WriteText(String text, int xOffset, int yOffset)
-        {
-            Console.SetCursorPosition(xOffset, yOffset);
-            Console.WriteLine(text);
+            Console.SetCursorPosition(xOffset, yOffset++);
+            Text.WriteText("============================", xOffset, yOffset++);
+            Text.WriteText("G A M E    O V E R", xOffset + 5, yOffset++);
+            yOffset++;
+            Text.WriteText($"Player: {playerName}", xOffset + 5, yOffset++);
+            Text.WriteText($"Score: {points}", xOffset + 5, yOffset++);
+            yOffset++;
+            Text.WriteText("Press DOWN ARROW to view leaderboard", xOffset-3, yOffset++);
+            yOffset++;
+            yOffset++;
+            Text.WriteText("============================", xOffset, yOffset++);
+            Text.WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
+            Text.WriteText("Game - Snake", xOffset + 8, yOffset++);
+            Text.WriteText("============================", xOffset, yOffset++);
         }
     }
 }
