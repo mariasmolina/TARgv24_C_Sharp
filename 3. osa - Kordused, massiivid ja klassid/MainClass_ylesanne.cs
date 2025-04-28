@@ -89,7 +89,36 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             /************************************************************/
             // Ülesanne 9 - Arvude ruudud
 
+            int[] arvud = { 2, 4, 6, 8, 10, 12 };
 
+            // Ruut (for)
+            for (int i = 0; i < arvud.Length; i++)
+                Console.WriteLine($"{arvud[i]} ruut on {arvud[i] * arvud[i]}");
+
+            // Kahekordne väärtus (foreach)
+            foreach (var arv in arvud)
+                Console.WriteLine($"{arv} kahekordne väärtus on {arv * 2}");
+
+            // Kui palju on arvude seas arve, mis jaguvad 3-ga (while)
+            int arvudeKogus = 0;
+            int jaguvadKolmega = 0;
+            while (arvudeKogus < arvud.Length)
+            {
+                if (arvud[arvudeKogus] % 3 == 0)  // делятся на 3 без остатка
+                    jaguvadKolmega++;
+
+                arvudeKogus++;
+            }
+            Console.WriteLine($"Kolmega jaguvate arvude koguarv: {jaguvadKolmega}");
+
+            Console.WriteLine("Arvud, mis jaguvad kolmega:");
+            for (int i = 0; i < arvud.Length; i++)
+            {
+                if (arvud[i] % 3 == 0)
+                {
+                    Console.WriteLine(arvud[i]);
+                }
+            }
 
 
 
