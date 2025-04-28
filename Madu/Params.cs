@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp.Madu
 {
+    /* Класс Params отвечает за получение пути к ресурсам игры (музыка, картинки и т.д.) */
     public class Params
     {
         private string resourcesFolder;
@@ -19,7 +20,7 @@ namespace TARgv24_C_Sharp.Madu
                 Directory.GetCurrentDirectory().ToString().Substring(0, ind)
                     .ToString();  // путь до указанной в индексе папки
 
-            resourcesFolder = binFolder + "resources\\";
+            resourcesFolder = binFolder + "Madu\\resources\\";
         }
 
         public string GetResourceFolder()

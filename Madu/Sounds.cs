@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,13 @@ using WMPLib;
 
 namespace TARgv24_C_Sharp.Madu
 {
+    /* Класс Sounds отвечает за воспроизведение музыки и звуковых эффектов
+     с помощью библиотеки Windows Media Player */
     public class Sounds
     {
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
+        // два объекта: чтобы можно было одновременно воспроизводить и фоновую музыку, и короткие эффекты
+        WindowsMediaPlayer backgroundPlayer = new WindowsMediaPlayer();  // для фоновой музыки
+        WindowsMediaPlayer effectPlayer = new WindowsMediaPlayer();  // для звуковых эффектов
         private string pathToMedia;
 
 
@@ -21,24 +26,31 @@ namespace TARgv24_C_Sharp.Madu
 
         public void Play()
         {
-            player.URL = pathToMedia + "music.mp3";
-            player.settings.volume = 30; // громкость
-            player.controls.play();  // воспроизведение
-            player.settings.setMode("loop", true); // зацикливание
+            backgroundPlayer.URL = pathToMedia + "music.mp3";
+            backgroundPlayer.settings.volume = 10; // громкость
+            backgroundPlayer.controls.play();  // воспроизведение
+            backgroundPlayer.settings.setMode("loop", true); // зацикливание
+        }
+
+        public void Stop(string songName)
+        {
+            backgroundPlayer.URL = pathToMedia + songName + ".mp3";
+            backgroundPlayer.controls.stop();
         }
 
         public void Play(string songName)
         {
-            player.URL = pathToMedia + songName + ".mp3";  // путь к файлу
-            player.controls.play();
+            effectPlayer.URL = pathToMedia + songName + ".mp3";  // путь к файлу
+            effectPlayer.settings.setMode("loop", false);
+            effectPlayer.controls.play();
         }
-
 
         public void PlayEat()
         {
-            player.URL = pathToMedia + "food.mp3";
-            player.settings.volume = 100;
-            player.controls.play();
+            effectPlayer.URL = pathToMedia + "food.mp3";
+            effectPlayer.settings.setMode("loop", false);
+            effectPlayer.settings.volume = 100;
+            effectPlayer.controls.play();
         }
     }
 }

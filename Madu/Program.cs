@@ -47,6 +47,7 @@ namespace TARgv24_C_Sharp.Madu
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())  // проверка столкновения змейки об стену или с хвостом
                 {
+                    sounds.Stop("music");
                     sounds.Play("gameover"); // проигрываем звук конца игры
                     Thread.Sleep(2000);
                     break;
@@ -54,10 +55,10 @@ namespace TARgv24_C_Sharp.Madu
 
                 if (snake.Eat(food)) // если змейка встретится с едой
                 {
+                    sounds.PlayEat(); // воспроизводим звук поедания еды
                     food = foodCreator.CreateFood();
                     food.Draw();
                     score.Add(10);
-                    sounds.PlayEat(); // воспроизводим звук поедания еды
                 }
                 else
                 {
