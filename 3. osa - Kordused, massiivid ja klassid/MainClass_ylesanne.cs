@@ -95,16 +95,16 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             /************************************************************/
             // Ülesanne 9 - Arvude ruudud
 
-            int[] arvud = { 2, 4, 6, 8, 10, 12 };
+            int[] arvud_1 = { 2, 4, 6, 8, 10, 12 };
 
             // Ruut (for)
-            for (int i = 0; i < arvud.Length; i++)
+            for (int i = 0; i < arvud_1.Length; i++)
             {
-                Console.WriteLine($"{arvud[i]} ruut on {arvud[i] * arvud[i]}");
+                Console.WriteLine($"{arvud_1[i]} ruut on {arvud_1[i] * arvud_1[i]}");
             }
 
             // Kahekordne väärtus (foreach)
-            foreach (var arv in arvud)
+            foreach (var arv in arvud_1)
             {
                 Console.WriteLine($"{arv} kahekordne väärtus on {arv * 2}");
             }
@@ -112,9 +112,9 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             // Kui palju on arvude seas arve, mis jaguvad 3-ga (while)
             int arvudeKogus = 0;
             int jaguvadKolmega = 0;
-            while (arvudeKogus < arvud.Length)
+            while (arvudeKogus < arvud_1.Length)
             {
-                if (arvud[arvudeKogus] % 3 == 0)  // делятся на 3 без остатка
+                if (arvud_1[arvudeKogus] % 3 == 0)  // делятся на 3 без остатка
                     jaguvadKolmega++;
 
                 arvudeKogus++;
@@ -122,11 +122,11 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             Console.WriteLine($"Kolmega jaguvate arvude koguarv: {jaguvadKolmega}");
 
             Console.WriteLine("Arvud, mis jaguvad kolmega:");
-            for (int i = 0; i < arvud.Length; i++)
+            for (int i = 0; i < arvud_1.Length; i++)
             {
-                if (arvud[i] % 3 == 0)
+                if (arvud_1[i] % 3 == 0)
                 {
-                    Console.WriteLine(arvud[i]);
+                    Console.WriteLine(arvud_1[i]);
                 }
             }
 
