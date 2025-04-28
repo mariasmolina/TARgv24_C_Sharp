@@ -26,6 +26,11 @@ namespace TARgv24_C_Sharp.Madu
             Console.Clear();
             Score score = new Score(playerName);
 
+            // подключаем музыку
+            Params par = new Params();
+            Sounds sounds = new Sounds(par.GetResourceFolder());
+            sounds.Play(); // фоновая музыка
+
             Walls walls = new Walls(80, 25); 
             walls.Draw();
 
@@ -42,6 +47,8 @@ namespace TARgv24_C_Sharp.Madu
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())  // проверка столкновения змейки об стену или с хвостом
                 {
+                    sounds.Play("gameover"); // проигрываем звук конца игры
+                    Thread.Sleep(2000);
                     break;
                 }
 
@@ -50,6 +57,7 @@ namespace TARgv24_C_Sharp.Madu
                     food = foodCreator.CreateFood();
                     food.Draw();
                     score.Add(10);
+                    sounds.PlayEat(); // воспроизводим звук поедания еды
                 }
                 else
                 {
