@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
 {
-    internal class MainClass_1osa
+    internal class MainClass_1_2osa
     {
         public static void Main(string[] args)
         {
@@ -28,7 +28,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             Console.WriteLine("Tere!\n" + tekst);
             Console.WriteLine("\nTere {0}!", tekst);
 
-            // C# Valikute konstruktsionid
+            // II. osa C# Valikute konstruktsionid
             if (tekst.ToLower() == "juku")
             {
                 Console.WriteLine("Lähme kinno!");
@@ -36,7 +36,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
                 {
                     Console.WriteLine("{0}\n Kui vana sa oled?", tekst);
                     int vanus = int.Parse(Console.ReadLine());
-                    string pilet_vastus = FunktsioonideClass_1osa.VanusePilet(vanus);
+                    string pilet_vastus = FunktsioonideClass_1_2osa.VanusePilet(vanus);
                     Console.WriteLine(pilet_vastus);
                 }
                 catch (Exception e)
@@ -52,7 +52,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             Console.WriteLine("Arv 2: ");
             int arv2 = int.Parse(Console.ReadLine());
             // Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);
-            arv1 = FunktsioonideClass_1osa.Kalkulaator(a, arv2);
+            arv1 = FunktsioonideClass_1_2osa.Kalkulaator(a, arv2);
             Console.WriteLine(arv1);
 
             Console.WriteLine("Switch'i kasutamine");
@@ -60,7 +60,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             a = rnd.Next(1, 7);
             Console.WriteLine(a);
 
-            tekst = FunktsioonideClass_1osa.switchKasuta(a);
+            tekst = FunktsioonideClass_1_2osa.switchKasuta(a);
             Console.WriteLine(tekst);
 
             Console.ReadKey();
@@ -71,7 +71,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             string nimi1 = Console.ReadLine();
             Console.Write("Sisesta teine nimi:");
             string nimi2 = Console.ReadLine();
-            string nimi_vastus = FunktsioonideClass_1osa.Pinginaabrid(nimi1, nimi2);
+            string nimi_vastus = FunktsioonideClass_1_2osa.Pinginaabrid(nimi1, nimi2);
             Console.WriteLine(nimi_vastus);
 
 
@@ -98,7 +98,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
                 Console.WriteLine(e);
             }
 
-            double vastus = FunktsioonideClass_1osa.Korrutamine(c, d);
+            double vastus = FunktsioonideClass_1_2osa.Korrutamine(c, d);
             Console.WriteLine("Põranda pindala on " + vastus);
             Console.Write("Kas soovite remodi teha?");
             string vastus2 = Console.ReadLine();
@@ -108,7 +108,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
                 {
                     Console.Write("Sisestage kui palju maksab ruutmeeter:");
                     double hind = Convert.ToDouble(Console.ReadLine());
-                    double vastus3 = FunktsioonideClass_1osa.Korrutamine(hind, vastus);
+                    double vastus3 = FunktsioonideClass_1_2osa.Korrutamine(hind, vastus);
                     Console.WriteLine("Põranda vahetamise hind on " + vastus3);
                 }
                 catch (Exception e)
@@ -127,7 +127,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             {
                 Console.Write("Sisestage alghind: ");
                 double alghind = Convert.ToDouble(Console.ReadLine());
-                vastus = FunktsioonideClass_1osa.Hinnasoodustus(alghind);
+                vastus = FunktsioonideClass_1_2osa.Hinnasoodustus(alghind);
                 Console.WriteLine("Soodustusega 30% lõpphind on " + vastus);
             }
             catch (Exception e)
@@ -141,7 +141,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             {
                 Console.Write("Sisestage toa temperatuur: ");
                 int temp = int.Parse(Console.ReadLine());
-                vastus2 = FunktsioonideClass_1osa.Temperatuur(temp);
+                vastus2 = FunktsioonideClass_1_2osa.Temperatuur(temp);
                 Console.WriteLine(vastus2);
             }
             catch (Exception e)
@@ -156,7 +156,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             {
                 Console.Write("Sisestage oma pikkus: ");
                 pikkus = int.Parse(Console.ReadLine());
-                vastus2 = FunktsioonideClass_1osa.Pikkus(pikkus);
+                vastus2 = FunktsioonideClass_1_2osa.Pikkus(pikkus);
                 Console.WriteLine(vastus2);
             }
             catch (Exception e)
@@ -177,7 +177,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
             }
             Console.Write("Sisestage oma sugu: ");
             string sugu = Console.ReadLine();
-            vastus2 = FunktsioonideClass_1osa.PikkusSugu(pikkus, sugu);
+            vastus2 = FunktsioonideClass_1_2osa.PikkusSugu(pikkus, sugu);
             Console.WriteLine(vastus2);
 
 
@@ -231,7 +231,7 @@ namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
                 }
             }
 
-            string ostutsekk = FunktsioonideClass_1osa.Ostukorv(piim_kogus, sai_kogus, leib_kogus);
+            string ostutsekk = FunktsioonideClass_1_2osa.Ostukorv(piim_kogus, sai_kogus, leib_kogus);
             Console.WriteLine("\n" + ostutsekk);
         }
     }

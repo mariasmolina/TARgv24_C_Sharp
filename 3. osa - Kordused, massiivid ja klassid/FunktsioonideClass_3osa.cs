@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
 {
-    internal class FunktsioonideClass_2osa
+    internal class FunktsioonideClass_3osa
     {
         public static List<string> Sõnad()
         {

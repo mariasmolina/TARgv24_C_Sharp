@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TARgv24_C_Sharp._3._Failitöötlus
+namespace TARgv24_C_Sharp._4._osa___Failitöötlus
 {
-    internal class MainClass_3osa
+    internal class MainClass_4osa
     {
         public static void Main(string[] args)
         {

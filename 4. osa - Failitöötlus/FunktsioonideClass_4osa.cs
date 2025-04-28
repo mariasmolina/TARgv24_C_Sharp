@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace TARgv24_C_Sharp._3._Failitöötlus
+namespace TARgv24_C_Sharp._4._osa___Failitöötlus
 {
-    internal class FunktsioonideClass_3osa
+    internal class FunktsioonideClass_4osa
     {
         public static string FailiPath(string path)
         {

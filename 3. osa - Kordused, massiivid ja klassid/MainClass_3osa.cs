@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
 {
-    internal class MainClass_2osa
+    internal class MainClass_3osa
     {
         public static void Main(string[] args)
         {
-            // II. osa Kordused, Massivid, Listid, Klassid
+            // III. osa Kordused, Massivid, Listid, Klassid
 
             Isik isik1 = new Isik("Juku", 18, "12345678901", "Tallinn");
             isik1.PrindiInfo();
@@ -27,14 +27,14 @@ namespace TARgv24_C_Sharp._3._osa___Kordused__massiivid_ja_klassid
             string[] nimed = new string[10] { "Juku", "Mari", "Kati", "Peeter", "Mati", "Liina", "Katrin", "Andres", "Marko", "Kristi" };
             string[] aadressid = new string[10] { "Tallinn", "Tartu", "Pärnu", "Narva", "Kohtla-Järve", "Viljandi", "Rakvere", "Paide", "Jõhvi", "Kuressaare" };
             Console.WriteLine("----- for++ Massiv -------");
-            Isik[] isikud = FunktsioonideClass_2osa.Isikud(nimed.Length, nimed, aadressid);
+            Isik[] isikud = FunktsioonideClass_3osa.Isikud(nimed.Length, nimed, aadressid);
             for (i = 0; i < nimed.Length; i++)
             {
                 isikud[i].PrindiInfo();
             }
 
             Console.WriteLine("----- for-- List -------");
-            List<Isik> isikud2 = FunktsioonideClass_2osa.Isikud2(nimed.Length, nimed, aadressid);
+            List<Isik> isikud2 = FunktsioonideClass_3osa.Isikud2(nimed.Length, nimed, aadressid);
 
             foreach (Isik isik in isikud2)
             {
