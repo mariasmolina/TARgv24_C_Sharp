@@ -70,7 +70,7 @@ namespace TARgv24_C_Sharp._4._Kollektsioonid._Listid_ja_sõnastikud
 
             // Ülesanne 2 – Maakonnad ja pealinnad (sõnastik ja test)
 
-            Console.WriteLine("\n--- Ülesanne 2 ---");
+            Console.WriteLine("\n\n--- Ülesanne 2 ---");
 
 
         }

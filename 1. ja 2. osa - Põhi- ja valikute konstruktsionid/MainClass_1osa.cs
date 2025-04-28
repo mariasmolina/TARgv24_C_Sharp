@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TARgv24_C_Sharp._1._Põhi__ja_valikute_konstruktsionid
+namespace TARgv24_C_Sharp._1._ja_2._osa___Põhi__ja_valikute_konstruktsionid
 {
     internal class MainClass_1osa
     {
