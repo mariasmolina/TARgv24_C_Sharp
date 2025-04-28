@@ -19,7 +19,7 @@ namespace TARgv24_C_Sharp._5._osa___Kollektsioonid._Listid_ja_sõnastikud
             {
                 summa = summa + hinne;
             }
-            return summa / Hinded.Count;
+            return Math.Round(summa / Hinded.Count, 2);
         }
     }
 }
