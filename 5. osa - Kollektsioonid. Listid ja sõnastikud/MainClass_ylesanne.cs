@@ -72,7 +72,40 @@ namespace TARgv24_C_Sharp._5._osa___Kollektsioonid._Listid_ja_sõnastikud
 
             Console.WriteLine("\n\n--- Ülesanne 2 ---");
 
+            bool jatka = true;
+            while (jatka)
+            {
+                Console.WriteLine("\nVali tegevus:");
+                Console.WriteLine("1. Otsi maakonda või linna");
+                Console.WriteLine("2. Lisa uus maakond");
+                Console.WriteLine("3. Mängurežiim");
+                Console.WriteLine("4. Kuvada kõik maakonnad ja pealinnad");
+                Console.WriteLine("5. Välju");
 
+                string valik = Console.ReadLine();
+                switch (valik)
+                {
+                    case "1":
+                        FunktsioonideClass_5osa.OtsiMaakondVoiLinn();
+                        break;
+                    case "2":
+                        FunktsioonideClass_5osa.LisaUusMaakond();
+                        break;
+                    case "3":
+                        FunktsioonideClass_5osa.ManguReziim();
+                        break;
+                    case "4":
+                        FunktsioonideClass_5osa.KuvaKoik();
+                        break;
+                    case "5":
+                        jatka = false;
+                        Console.WriteLine("Head aega!");
+                        break;
+                    default:
+                        Console.WriteLine("Vale valik. Proovi uuesti.");
+                        break;
+                }
+            }
         }
     }
 }
