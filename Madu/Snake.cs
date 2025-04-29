@@ -35,7 +35,9 @@ namespace TARgv24_C_Sharp.Madu
             pList.Add(head);
 
             tail.Clear();
+            Console.ForegroundColor = Settings.SnakeColor;
             head.Draw();
+            Console.ResetColor();
         }
         
         public Point GetNextPoint()  // вычисляет, в какой точке находится змейка в следующий момент

@@ -21,6 +21,7 @@ namespace TARgv24_C_Sharp.Madu
 
             Params par = new Params();
             Sounds sounds = new Sounds(par.GetResourceFolder());
+            Settings.GlobalSounds = sounds;  // сохраняем объект звуков в настройки
             sounds.Play(); // фоновая музыка
 
             Menu.ShowFullMenu(sounds); // показываем меню
@@ -55,14 +56,18 @@ namespace TARgv24_C_Sharp.Madu
                 }
                 // создаём стены, передавая флаг сложности
                 Walls walls = new Walls(80, 25, isHardLevel);
+                Console.ForegroundColor = Settings.WallColor;
                 walls.Draw();
+                Console.ResetColor();
 
-                // Отрисовка точек
-                Point p = new Point(4, 5, '*');  // x, y, символ
-                    Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
+            // Отрисовка точек
+            Point p = new Point(4, 5, '*');  // x, y, символ
+                Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
+                Console.ForegroundColor = Settings.SnakeColor;
                 snake.Draw();
+                Console.ResetColor();
 
-                FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+            FoodCreator foodCreator = new FoodCreator(80, 25, Settings.FoodChar);
                 Point food = foodCreator.CreateFood();
                 food.Draw();
 

@@ -17,6 +17,7 @@ namespace TARgv24_C_Sharp.Madu
         {
             while (true)
             {
+                Console.Clear();
                 int menuChoice = MenuChoice(); // показываем меню каждый раз
 
                 if (menuChoice == 1) // Play
@@ -30,10 +31,7 @@ namespace TARgv24_C_Sharp.Madu
                 }
                 else if (menuChoice == 3) // Settings
                 {
-                    Console.Clear();
-                    Console.WriteLine("Настройки пока в разработке...");
-                    Console.WriteLine("\nНажмите ESC для возврата в меню.");
-                    Keyboard.WaitForEsc();
+                    Settings.ShowSettings();
                 }
                 else if (menuChoice == 4) // Exit
                 {

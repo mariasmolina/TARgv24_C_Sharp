@@ -52,5 +52,10 @@ namespace TARgv24_C_Sharp.Madu
             effectPlayer.settings.volume = 100;
             effectPlayer.controls.play();
         }
+
+        public void UpdateVolume()
+        {
+            backgroundPlayer.settings.volume = Settings.BackgroundVolume;
+        }
     }
 }

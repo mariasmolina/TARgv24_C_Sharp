@@ -1,1 +1,4 @@
+Andrei:120
+ANDREI:100
 Maria:50
+andrei:0
