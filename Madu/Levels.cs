@@ -12,7 +12,7 @@ namespace TARgv24_C_Sharp.Madu
     {
         public static int ChooseLevel()
         {
-            string[] levels = { "EASY", "MEDIUM", "HARD" };
+            string[] levels = { "EASY", "MEDIUM", "HARD", "HELL" };
 
             string title = FiggleFonts.Standard.Render("SELECT LEVEL\n");
             return Keyboard.ChooseOption(title, levels); // возвращает 1, 2 или 3

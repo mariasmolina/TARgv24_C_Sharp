@@ -23,6 +23,10 @@ namespace TARgv24_C_Sharp.Madu
             {
                 return 50;  // сложный
             }
+            else if (level == 4)
+            {
+                return 35;  // ооочень сложный
+            }
             else
             {
                 return 100; // по умолчанию средний

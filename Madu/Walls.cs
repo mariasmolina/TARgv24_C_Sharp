@@ -11,8 +11,9 @@ namespace TARgv24_C_Sharp.Madu
     class Walls
     {
         List<Figure> wallList;  // список фигур
+        private bool isHardLevel; // флажок: есть ли сложные стены внутри
 
-        public Walls(int mapWidth, int mapHeight)  // принимает габариты карты
+        public Walls(int mapWidth, int mapHeight, bool hardLevel = false)  // принимает габариты карты
         {
             wallList = new List<Figure>();
 
@@ -27,7 +28,24 @@ namespace TARgv24_C_Sharp.Madu
             wallList.Add(downLine);
             wallList.Add(leftLine);
             wallList.Add(rightLine);
+
+            if (hardLevel)
+            {
+                AddHardLevelWalls();
+            }
         }
+
+        // добавление стенок для сложного уровня
+        private void AddHardLevelWalls()
+        {
+            // создаём дополнительные стены внутри карты
+            wallList.Add(new HorizontalLine(20, 30, 6, 'X'));
+            wallList.Add(new HorizontalLine(50, 60, 6, 'X'));
+            wallList.Add(new HorizontalLine(20, 30, 18, 'X'));
+            wallList.Add(new HorizontalLine(50, 60, 18, 'X'));
+            wallList.Add(new VerticalLine(10, 16, 40, 'X'));
+        }
+
 
         internal bool IsHit(Figure figure)
         {

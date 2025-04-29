@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Figgle;
 
 // OOP - инкапсуляция, наследование, полиморфизм
 
@@ -14,7 +15,7 @@ namespace TARgv24_C_Sharp.Madu
     {
         static void Main(string[] args)
         {
-
+            // устанавливаем размер консоли
             Console.SetWindowSize(80, 25);
             Console.SetBufferSize(80, 25);
 
@@ -35,19 +36,30 @@ namespace TARgv24_C_Sharp.Madu
 
                 // спрашиваем имя игрока и создаём объект Score
                 Console.Clear();
-                Console.SetCursorPosition(30, 10);
-                Console.Write("Sisesta oma nimi: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                string title=FiggleFonts.Standard.Render("PLAYER");
+                Console.WriteLine(title);
+                Console.Write("\nENTER YOUR NAME: ");
                 string playerName = Console.ReadLine();
                 Console.Clear();
                 Score score = new Score(playerName);
 
-                // создание стен
-                Walls walls = new Walls(80, 25);
+ 
+                // создаём переменную, которая отвечает за сложный уровень
+                bool isHardLevel = false;
+
+                // если выбран уровень 4 (оочень сложный), то ставим true
+                if (level == 4)
+                {
+                    isHardLevel = true;
+                }
+                // создаём стены, передавая флаг сложности
+                Walls walls = new Walls(80, 25, isHardLevel);
                 walls.Draw();
 
                 // Отрисовка точек
                 Point p = new Point(4, 5, '*');  // x, y, символ
-                Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
+                    Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
                 snake.Draw();
 
                 FoodCreator foodCreator = new FoodCreator(80, 25, '$');
@@ -56,7 +68,8 @@ namespace TARgv24_C_Sharp.Madu
 
                 while (true)
                 {
-                    if (walls.IsHit(snake) || snake.IsHitTail())  // проверка столкновения змейки об стену или с хвостом
+                    // проверка столкновения змейки об стену или с хвостом
+                    if (walls.IsHit(snake) || snake.IsHitTail())
                     {
                         sounds.Stop("music");
                         sounds.Play("gameover"); // проигрываем звук конца игры
@@ -101,26 +114,28 @@ namespace TARgv24_C_Sharp.Madu
         // выводит сообщение об окончании игры в консоли
         static void WriteGameOver(string playerName, int points)
         {
-            int xOffset = 25;
-            int yOffset = 5;
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
 
+            string title = FiggleFonts.Standard.Render("   G A M E    O V E R");
+            Console.WriteLine(title);
+
+            int xOffset = 25;
+            int yOffset = 7;
+
             Console.SetCursorPosition(xOffset, yOffset++);
+
             WriteText("============================", xOffset, yOffset++);
-            WriteText("G A M E    O V E R", xOffset + 5, yOffset++);
             yOffset++;
-            WriteText($"Player: {playerName}", xOffset + 5, yOffset++);
-            WriteText($"Score: {points}", xOffset + 5, yOffset++);
-            yOffset++;
+            WriteText($"PLAYER: {playerName}", xOffset + 9, yOffset++);
+            WriteText($"SCORE: {points}", xOffset + 10, yOffset++);
             yOffset++;
             WriteText("============================", xOffset, yOffset++);
             WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
             WriteText("Game - Snake", xOffset + 8, yOffset++);
             WriteText("============================", xOffset, yOffset++);
-            yOffset++;
-            yOffset++;
-            yOffset++;
-            WriteText("Press ESC to return to menu", xOffset, yOffset++);
+            yOffset += 5;
+            WriteText("Press ESC to return to MENU", xOffset, yOffset++);
         }
     }
 }
