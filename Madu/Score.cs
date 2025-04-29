@@ -20,7 +20,9 @@ namespace TARgv24_C_Sharp.Madu
         {
             PlayerName = playerName;
             Points = 0;
-            filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\resources\results.txt");
+
+            Params p = new Params();
+            filePath = Path.Combine(p.GetResourceFolder(), "results.txt");
             Draw();
         }
 
@@ -104,11 +106,12 @@ namespace TARgv24_C_Sharp.Madu
         // метод для показа таблицы лидеров
         public static void showLeaderoard()
         {
-            // Чтение и заполнение словаря
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\resources\results.txt");
-           
             try
             {
+                // Чтение и заполнение словаря
+                Params p = new Params();
+                string path = Path.Combine(p.GetResourceFolder(), "results.txt");
+
                 string[] lines = File.ReadAllLines(path); // читаем строки из файла
 
                 // выводим отсортированные результаты
@@ -128,8 +131,10 @@ namespace TARgv24_C_Sharp.Madu
                 }
 
                 Program.WriteText("============================", xOffset, yOffset++);
+                yOffset += 5;
+                Program.WriteText("Press ESC to return to MENU", xOffset, yOffset++);
                 Console.ResetColor(); // Вернуть обычный цвет
-                Console.ReadKey();
+                Keyboard.WaitForEsc(); // ждём нажатие ESC
             }
             catch (Exception)
             {

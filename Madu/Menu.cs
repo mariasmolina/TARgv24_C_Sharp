@@ -27,7 +27,6 @@ namespace TARgv24_C_Sharp.Madu
                 else if (menuChoice == 2) // Leaderboard
                 {
                     Score.showLeaderoard();
-                    Keyboard.WaitForEsc(); // ждём нажатие ESC
                 }
                 else if (menuChoice == 3) // Settings
                 {
@@ -35,7 +34,7 @@ namespace TARgv24_C_Sharp.Madu
                 }
                 else if (menuChoice == 4) // Exit
                 {
-                    break; // закрываем игру
+                    Environment.Exit(0); // полностью завершаем программу
                 }
             }
         }
