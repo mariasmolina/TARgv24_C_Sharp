@@ -30,12 +30,12 @@ namespace TARgv24_C_Sharp.Madu
                     if (i == selectedIndex)  // если это выбранный пункт
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"[ {options[i]} ]");  // текущий выбранный пункт
+                        Console.WriteLine($"[ {options[i]} ]\n");  // текущий выбранный пункт
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine($"  {options[i]}");  // остальные пункты обычным цветом
+                        Console.WriteLine($"  {options[i]}\n");  // остальные пункты обычным цветом
                     }
                 }
 

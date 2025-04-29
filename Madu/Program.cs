@@ -29,6 +29,10 @@ namespace TARgv24_C_Sharp.Madu
             // метод для запуска игры
             public static void StartGame(Sounds sounds) 
             {
+                // выбор уровня сложности
+                int level = Levels.ChooseLevel();
+                int snakeSpeed = Speed.SnakeSpeed(level);
+
                 // спрашиваем имя игрока и создаём объект Score
                 Console.Clear();
                 Console.SetCursorPosition(30, 10);
@@ -37,6 +41,7 @@ namespace TARgv24_C_Sharp.Madu
                 Console.Clear();
                 Score score = new Score(playerName);
 
+                // создание стен
                 Walls walls = new Walls(80, 25);
                 walls.Draw();
 
@@ -70,7 +75,7 @@ namespace TARgv24_C_Sharp.Madu
                     {
                         snake.Move();
                     }
-                    Thread.Sleep(100); // задержка между движениями змейки
+                    Thread.Sleep(snakeSpeed); // задержка между движениями змейки
 
                     if (Console.KeyAvailable)  // обработка нажатия клавиш
                     {
@@ -82,7 +87,6 @@ namespace TARgv24_C_Sharp.Madu
                 WriteGameOver(playerName, score.Points);
                 Keyboard.WaitForEsc();
                 score.Save();
-
                 sounds.Play(); // продолжаем воспроизводить фоновую музыку
             }
 

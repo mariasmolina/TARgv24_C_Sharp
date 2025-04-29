@@ -118,16 +118,16 @@ namespace TARgv24_C_Sharp.Madu
                 Console.ForegroundColor = ConsoleColor.Red;
 
                 Console.SetCursorPosition(xOffset, yOffset++);
-                Text.WriteText("============================", xOffset, yOffset++);
-                Text.WriteText("     TULEMUSED", xOffset + 5, yOffset++); // Заголовок по центру
+                Program.WriteText("============================", xOffset, yOffset++);
+                Program.WriteText("     TULEMUSED", xOffset + 5, yOffset++); // Заголовок по центру
                 yOffset++; // отступ
 
                 foreach (var line in lines)
                 {
-                    Text.WriteText(line, xOffset + 10, yOffset++); // выводим результаты
+                    Program.WriteText(line, xOffset + 10, yOffset++); // выводим результаты
                 }
 
-                Text.WriteText("============================", xOffset, yOffset++);
+                Program.WriteText("============================", xOffset, yOffset++);
                 Console.ResetColor(); // Вернуть обычный цвет
                 Console.ReadKey();
             }
