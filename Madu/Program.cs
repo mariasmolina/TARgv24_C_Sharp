@@ -18,71 +18,96 @@ namespace TARgv24_C_Sharp.Madu
             Console.SetWindowSize(80, 25);
             Console.SetBufferSize(80, 25);
 
-            // спрашиваем имя игрока и создаём объект Score
-            Console.Clear();
-            Console.SetCursorPosition(30, 10);
-            Console.Write("Sisesta oma nimi: ");
-            string playerName = Console.ReadLine();
-            Console.Clear();
-            Score score = new Score(playerName);
-
-            // подключаем музыку
             Params par = new Params();
             Sounds sounds = new Sounds(par.GetResourceFolder());
             sounds.Play(); // фоновая музыка
 
-            Walls walls = new Walls(80, 25); 
-            walls.Draw();
-
-            // Отрисовка точек
-            Point p = new Point(4, 5, '*');  // x, y, символ
-            Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
-            snake.Draw();
-
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
-            Point food = foodCreator.CreateFood();
-            food.Draw();
-
-            while (true)  
+            while (true)
             {
-                if (walls.IsHit(snake) || snake.IsHitTail())  // проверка столкновения змейки об стену или с хвостом
-                {
-                    sounds.Stop("music");
-                    sounds.Play("gameover"); // проигрываем звук конца игры
-                    Thread.Sleep(2000);
-                    break;
-                }
+                int menuChoice = Menu.ShowMenu(); // показываем меню каждый раз
 
-                if (snake.Eat(food)) // если змейка встретится с едой
+                if (menuChoice == 1) // Play
                 {
-                    sounds.PlayEat(); // воспроизводим звук поедания еды
-                    food = foodCreator.CreateFood();
-                    food.Draw();
-                    score.Add(10);
+                    StartGame(sounds); // запускаем игру
                 }
-                else
+                else if (menuChoice == 2) // Leaderoard
                 {
-                    snake.Move();
+                    Score.showLeaderoard();
+                    WaitForEsc(); // ждём нажатие ESC для возврата в меню
                 }
-                Thread.Sleep(100);
-
-                if (Console.KeyAvailable)  // обработка нажатия клавиш
+                else if (menuChoice == 3) // Settings
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    snake.HandleKey(key.Key);
+                    Console.Clear();
+                    Console.WriteLine("Настройки пока в разработке...");
+                    Console.WriteLine("\nНажмите ESC для возврата в меню.");
+                    WaitForEsc();
+                }
+                else if (menuChoice == 4) // Exit
+                {
+                    break; // закрываем игру
                 }
             }
 
-            WriteGameOver(playerName, score.Points);
-            score.Save();
-            // ждём нажатия клавиши
-            ConsoleKeyInfo scoreKey = Console.ReadKey();
-            if (scoreKey.Key == ConsoleKey.DownArrow)
-            {
-                Score.showScoreBoard(); // показываем таблицу лидеров
-            }
 
-            Console.ReadLine();
+            static void StartGame(Sounds sounds) 
+            {
+                // спрашиваем имя игрока и создаём объект Score
+                Console.Clear();
+                Console.SetCursorPosition(30, 10);
+                Console.Write("Sisesta oma nimi: ");
+                string playerName = Console.ReadLine();
+                Console.Clear();
+                Score score = new Score(playerName);
+
+                Walls walls = new Walls(80, 25);
+                walls.Draw();
+
+                // Отрисовка точек
+                Point p = new Point(4, 5, '*');  // x, y, символ
+                Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
+                snake.Draw();
+
+                FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+                Point food = foodCreator.CreateFood();
+                food.Draw();
+
+                while (true)
+                {
+                    if (walls.IsHit(snake) || snake.IsHitTail())  // проверка столкновения змейки об стену или с хвостом
+                    {
+                        sounds.Stop("music");
+                        sounds.Play("gameover"); // проигрываем звук конца игры
+                        Thread.Sleep(2000);
+                        break;
+                    }
+
+                    if (snake.Eat(food)) // если змейка встретится с едой
+                    {
+                        sounds.PlayEat(); // воспроизводим звук поедания еды
+                        food = foodCreator.CreateFood();
+                        food.Draw();
+                        score.Add(10);
+                    }
+                    else
+                    {
+                        snake.Move();
+                    }
+                    Thread.Sleep(100); // задержка между движениями змейки
+
+                    if (Console.KeyAvailable)  // обработка нажатия клавиш
+                    {
+                        ConsoleKeyInfo key = Console.ReadKey();
+                        snake.HandleKey(key.Key);
+                    }
+                }
+
+                WriteGameOver(playerName, score.Points);
+                WaitForEsc();
+                score.Save();
+
+                sounds.Play(); // продолжаем воспроизводить фоновую музыку
+            }
+            
         }
 
         // выводит сообщение об окончании игры в консоли
@@ -99,13 +124,24 @@ namespace TARgv24_C_Sharp.Madu
             Text.WriteText($"Player: {playerName}", xOffset + 5, yOffset++);
             Text.WriteText($"Score: {points}", xOffset + 5, yOffset++);
             yOffset++;
-            Text.WriteText("Press DOWN ARROW to view leaderboard", xOffset-3, yOffset++);
-            yOffset++;
             yOffset++;
             Text.WriteText("============================", xOffset, yOffset++);
             Text.WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
             Text.WriteText("Game - Snake", xOffset + 8, yOffset++);
             Text.WriteText("============================", xOffset, yOffset++);
+            yOffset++;
+            yOffset++;
+            yOffset++;
+            Text.WriteText("Press ESC to return to menu", xOffset, yOffset++);
+        }
+
+        static void WaitForEsc()
+        {
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+            } while (key.Key != ConsoleKey.Escape);
         }
     }
 }

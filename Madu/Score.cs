@@ -102,7 +102,7 @@ namespace TARgv24_C_Sharp.Madu
 
 
         // метод для показа таблицы лидеров
-        public static void showScoreBoard()
+        public static void showLeaderoard()
         {
             // Чтение и заполнение словаря
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Madu\resources\results.txt");
