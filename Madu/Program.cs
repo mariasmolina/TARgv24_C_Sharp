@@ -22,34 +22,12 @@ namespace TARgv24_C_Sharp.Madu
             Sounds sounds = new Sounds(par.GetResourceFolder());
             sounds.Play(); // фоновая музыка
 
-            while (true)
-            {
-                int menuChoice = Menu.ShowMenu(); // показываем меню каждый раз
+            Menu.ShowFullMenu(sounds); // показываем меню
 
-                if (menuChoice == 1) // Play
-                {
-                    StartGame(sounds); // запускаем игру
-                }
-                else if (menuChoice == 2) // Leaderoard
-                {
-                    Score.showLeaderoard();
-                    WaitForEsc(); // ждём нажатие ESC для возврата в меню
-                }
-                else if (menuChoice == 3) // Settings
-                {
-                    Console.Clear();
-                    Console.WriteLine("Настройки пока в разработке...");
-                    Console.WriteLine("\nНажмите ESC для возврата в меню.");
-                    WaitForEsc();
-                }
-                else if (menuChoice == 4) // Exit
-                {
-                    break; // закрываем игру
-                }
-            }
+        }
 
-
-            static void StartGame(Sounds sounds) 
+            // метод для запуска игры
+            public static void StartGame(Sounds sounds) 
             {
                 // спрашиваем имя игрока и создаём объект Score
                 Console.Clear();
@@ -102,12 +80,18 @@ namespace TARgv24_C_Sharp.Madu
                 }
 
                 WriteGameOver(playerName, score.Points);
-                WaitForEsc();
+                Keyboard.WaitForEsc();
                 score.Save();
 
                 sounds.Play(); // продолжаем воспроизводить фоновую музыку
             }
-            
+
+
+        // метод для вывода текста в консоли
+        public static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
         }
 
         // выводит сообщение об окончании игры в консоли
@@ -118,30 +102,21 @@ namespace TARgv24_C_Sharp.Madu
             Console.ForegroundColor = ConsoleColor.Red;
 
             Console.SetCursorPosition(xOffset, yOffset++);
-            Text.WriteText("============================", xOffset, yOffset++);
-            Text.WriteText("G A M E    O V E R", xOffset + 5, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("G A M E    O V E R", xOffset + 5, yOffset++);
             yOffset++;
-            Text.WriteText($"Player: {playerName}", xOffset + 5, yOffset++);
-            Text.WriteText($"Score: {points}", xOffset + 5, yOffset++);
-            yOffset++;
-            yOffset++;
-            Text.WriteText("============================", xOffset, yOffset++);
-            Text.WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
-            Text.WriteText("Game - Snake", xOffset + 8, yOffset++);
-            Text.WriteText("============================", xOffset, yOffset++);
+            WriteText($"Player: {playerName}", xOffset + 5, yOffset++);
+            WriteText($"Score: {points}", xOffset + 5, yOffset++);
             yOffset++;
             yOffset++;
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("Student: Maria Smolina", xOffset + 3, yOffset++);
+            WriteText("Game - Snake", xOffset + 8, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
             yOffset++;
-            Text.WriteText("Press ESC to return to menu", xOffset, yOffset++);
-        }
-
-        static void WaitForEsc()
-        {
-            ConsoleKeyInfo key;
-            do
-            {
-                key = Console.ReadKey(true);
-            } while (key.Key != ConsoleKey.Escape);
+            yOffset++;
+            yOffset++;
+            WriteText("Press ESC to return to menu", xOffset, yOffset++);
         }
     }
 }

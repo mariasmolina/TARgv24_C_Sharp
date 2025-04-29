@@ -12,56 +12,41 @@ namespace TARgv24_C_Sharp.Madu
     {
         private static string[] options = { "PLAY", "LEADERBOARD", "SETTINGS", "EXIT" };  // варианты меню
 
-        // метод для отображения меню и обработки выбора игрока
-        public static int ShowMenu()
+
+        public static void ShowFullMenu(Sounds sounds)
         {
-            int selectedIndex = 0;  // индекс текущего выбранного пункта меню
-            ConsoleKey key;  // переменная для хранения нажатой клавиши
-
-            do
+            while (true)
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\n\n\n");
-                Console.WriteLine(FiggleFonts.Standard.Render("Snake Game"));
-                Console.WriteLine();
+                int menuChoice = MenuChoice(); // показываем меню каждый раз
 
-                // вывод всех пунктов меню
-                for (int i = 0; i < options.Length; i++)
+                if (menuChoice == 1) // Play
                 {
-                    if (i == selectedIndex)  // если это выбранный пункт
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"[ {options[i]} ]"); // текущий выбранный пункт
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine($"  {options[i]}");  // остальные пункты обычным цветом
-                    }
+                    Program.StartGame(sounds); // запускаем игру
                 }
-
-                Console.ResetColor();
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);  // считываем нажатую клавишу
-                key = keyInfo.Key;  // сохраняем нажатую клавишу
-
-                // обработка нажатия стрелок
-                if (key == ConsoleKey.UpArrow)  // стрелка вверх
+                else if (menuChoice == 2) // Leaderboard
                 {
-                    selectedIndex--;
-                    if (selectedIndex < 0)
-                        selectedIndex = options.Length - 1;  // если вышли за верхний предел — переходим в конец
+                    Score.showLeaderoard();
+                    Keyboard.WaitForEsc(); // ждём нажатие ESC
                 }
-                else if (key == ConsoleKey.DownArrow)  // стрелка вниз
+                else if (menuChoice == 3) // Settings
                 {
-                    selectedIndex++;
-                    if (selectedIndex >= options.Length)
-                        selectedIndex = 0;  // если вышли за нижний предел — переходим в начало
+                    Console.Clear();
+                    Console.WriteLine("Настройки пока в разработке...");
+                    Console.WriteLine("\nНажмите ESC для возврата в меню.");
+                    Keyboard.WaitForEsc();
                 }
+                else if (menuChoice == 4) // Exit
+                {
+                    break; // закрываем игру
+                }
+            }
+        }
 
-            } while (key != ConsoleKey.Enter);  // продолжаем пока не нажата Enter
-
-            return selectedIndex + 1; // возвращаем 1 для Play, 2 для Score Board и т.д.
+        // метод для отображения меню и обработки выбора игрока
+        public static int MenuChoice()
+        {
+            string title = FiggleFonts.Standard.Render("Snake Game");
+            return Keyboard.ChooseOption(title, options); // вызываем метод выбора опции
         }
     }
 }
