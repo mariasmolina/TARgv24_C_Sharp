@@ -60,14 +60,14 @@ namespace TARgv24_C_Sharp.Madu
                 walls.Draw();
                 Console.ResetColor();
 
-            // Отрисовка точек
-            Point p = new Point(4, 5, '*');  // x, y, символ
+                // Отрисовка точек
+                Point p = new Point(4, 5, '*');  // x, y, символ
                 Snake snake = new Snake(p, 4, Direction.RIGHT);  // координаты, длина и направление
                 Console.ForegroundColor = Settings.SnakeColor;
                 snake.Draw();
                 Console.ResetColor();
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, Settings.FoodChar);
+                FoodCreator foodCreator = new FoodCreator(80, 25, Settings.FoodChar);
                 Point food = foodCreator.CreateFood();
                 food.Draw();
 

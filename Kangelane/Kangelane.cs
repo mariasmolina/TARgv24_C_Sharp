@@ -15,10 +15,10 @@ namespace TARgv24_C_Sharp.Kangelane
         public string Asukoht { get; set; }
 
         // конструктор 
-        public Kangelane(string nimi, string linn)
+        public Kangelane(string nimi, string asukoht)
         {
             Nimi = nimi;
-            Asukoht = linn;
+            Asukoht = asukoht;
         }
 
         // метод возвращает 95% от числа людей в опасности (округлённо)
@@ -40,7 +40,7 @@ namespace TARgv24_C_Sharp.Kangelane
         // метод возвращает персональное приветствие
         public virtual string Tervitus()
         {
-            string tervitus = "Tere! Mina olen " + Nimi + " ja ma olen kangelane!";
+            string tervitus = "Tere! Mina olen " + Nimi + "ja ma olen kangelane!";
 
             return tervitus;
         }

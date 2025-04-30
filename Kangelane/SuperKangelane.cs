@@ -11,10 +11,10 @@ namespace TARgv24_C_Sharp.Kangelane
         public double Osavus { get; set; }
 
         // конструктор, который вычисляет ловкость в диапазоне от 1 до 5
-        public SuperKangelane(string nimi, string linn, double osavus) : base(nimi, linn) // вызывает конструктор родителя
+        public SuperKangelane(string nimi, string asukoht) : base(nimi, asukoht) // вызывает конструктор родителя
         {
             Random rnd = new Random();
-            Osavus = rnd.NextDouble() * (5.0 - 1.0) + 1.0;
+            Osavus = Math.Round(rnd.NextDouble() * (5.0 - 1.0) + 1.0,2);
         }
 
         public override int Paasta(int ohus)
@@ -34,7 +34,7 @@ namespace TARgv24_C_Sharp.Kangelane
 
         public override string Tervitus()
         {
-            string tervitus = "Tere! Mina olen " + Nimi + " ja ma olen superkangelane!";
+            string tervitus = "Tere! Mina olen " + Nimi + "ja ma olen superkangelane!";
 
             return tervitus;
         }
