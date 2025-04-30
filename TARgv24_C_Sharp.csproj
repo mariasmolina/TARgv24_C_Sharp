@@ -10,12 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Madu\**" />
-    <EmbeddedResource Remove="Madu\**" />
-    <None Remove="Madu\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <COMReference Include="WMPLib">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>
