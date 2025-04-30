@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TARgv24_C_Sharp.Kangelane
-{
-    class andmed
-    {
-    }
-}
+﻿Superman* / London
+Batman / Tokyo
+Spiderman / Los Angeles
+Wonderwoman* / Paris
