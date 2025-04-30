@@ -6,8 +6,14 @@
     <RootNamespace>TARgv24_C_Sharp</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>TARgv24_C_Sharp.Madu.Program</StartupObject>
+    <StartupObject>TARgv24_C_Sharp.OOP.MainClass_OOP</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Madu\**" />
+    <EmbeddedResource Remove="Madu\**" />
+    <None Remove="Madu\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <COMReference Include="WMPLib">
