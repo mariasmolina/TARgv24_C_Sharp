@@ -32,7 +32,7 @@ namespace TARgv24_C_Sharp.Madu
             public static void StartGame(Sounds sounds) 
             {
                 // выбор уровня сложности
-                int level = Levels.ChooseLevel();
+                int level = LevelSelector.ChooseLevel();
                 int snakeSpeed = Speed.SnakeSpeed(level);
 
                 // спрашиваем имя игрока и создаём объект Score
