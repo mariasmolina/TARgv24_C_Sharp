@@ -7,30 +7,40 @@ using System.Threading.Tasks;
 namespace TARgv24_C_Sharp.Madu
 {
     // Класс Speed отвечает за скорость змейки в зависимости от уровня сложности
-    public static class Speed
+    public class Speed
     {
-        public static int SnakeSpeed(int level)
+        public int SpeedValue { get; set; }
+
+        // Конструктор
+        public Speed(int level)
+        {
+            SetSpeed(level);
+        }
+
+        // Метод для установки скорости
+        private void SetSpeed(int level)
         {
             if (level == 1)
             {
-                return 150; // лёгкий (150 мс между движениями)
+                SpeedValue = 150;
             }
             else if (level == 2)
             {
-                return 100; // средний
+                SpeedValue = 100;
             }
             else if (level == 3)
             {
-                return 50;  // сложный
+                SpeedValue = 50;
             }
             else if (level == 4)
             {
-                return 35;  // ооочень сложный
+                SpeedValue = 35;
             }
             else
             {
-                return 100; // по умолчанию средний
+                SpeedValue = 100;
             }
         }
+    }
     }
 }
