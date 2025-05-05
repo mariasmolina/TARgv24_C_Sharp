@@ -22,7 +22,8 @@ namespace TARgv24_C_Sharp.Madu
 
                 if (menuChoice == 1) // Play
                 {
-                    Program.StartGame(sounds); // запускаем игру
+                    Game game = new Game(sounds);
+                    game.Start();
                 }
                 else if (menuChoice == 2) // Leaderboard
                 {

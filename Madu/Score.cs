@@ -121,18 +121,18 @@ namespace TARgv24_C_Sharp.Madu
                 Console.ForegroundColor = ConsoleColor.Red;
 
                 Console.SetCursorPosition(xOffset, yOffset++);
-                Program.WriteText("============================", xOffset, yOffset++);
-                Program.WriteText("     TULEMUSED", xOffset + 5, yOffset++); // Заголовок по центру
+                Game.WriteText("============================", xOffset, yOffset++);
+                Game.WriteText("     TULEMUSED", xOffset + 5, yOffset++); // Заголовок по центру
                 yOffset++; // отступ
 
                 foreach (var line in lines)
                 {
-                    Program.WriteText(line, xOffset + 10, yOffset++); // выводим результаты
+                    Game.WriteText(line, xOffset + 10, yOffset++); // выводим результаты
                 }
 
-                Program.WriteText("============================", xOffset, yOffset++);
+                Game.WriteText("============================", xOffset, yOffset++);
                 yOffset += 5;
-                Program.WriteText("Press ESC to return to MENU", xOffset, yOffset++);
+                Game.WriteText("Press ESC to return to MENU", xOffset, yOffset++);
                 Console.ResetColor(); // Вернуть обычный цвет
                 Keyboard.WaitForEsc(); // ждём нажатие ESC
             }
