@@ -9,13 +9,22 @@ namespace TARgv24_C_Sharp.Madu
 {
     /* Класс Settings отвечает за настройки игры: цвет змейки, цвет стен,
      символ еды, громкость музыки и т.д. */
-    public static class Settings
+    public class Settings
     {
-        public static ConsoleColor SnakeColor = ConsoleColor.Green;
-        public static ConsoleColor WallColor = ConsoleColor.White;
-        public static char FoodChar = '$';
-        public static int BackgroundVolume = 10;
+        public static ConsoleColor SnakeColor { get; set; }
+        public static ConsoleColor WallColor { get; set; }
+        public static char FoodChar { get; set; }
+        public static int BackgroundVolume { get; set; }
         public static Sounds GlobalSounds;  // объект звуков для фоновой музыки
+
+        // Конструктор
+        static Settings()
+        {
+            SnakeColor = ConsoleColor.Green;
+            WallColor = ConsoleColor.White;
+            FoodChar = '$';
+            BackgroundVolume = 10;
+        }
 
         public static void ShowSettings()
         {
@@ -40,7 +49,7 @@ namespace TARgv24_C_Sharp.Madu
             }
         }
 
-        static void ChooseSnakeColor()
+        private static void ChooseSnakeColor()
         {
             ConsoleColor[] colors = {
                 ConsoleColor.Red,
@@ -63,7 +72,7 @@ namespace TARgv24_C_Sharp.Madu
             SnakeColor = colors[index - 1];  // сохраняем выбранный цвет
         }
 
-        static void ChooseWallColor()
+        private static void ChooseWallColor()
         {
             ConsoleColor[] colors = {
                 ConsoleColor.Red,
@@ -86,7 +95,7 @@ namespace TARgv24_C_Sharp.Madu
             WallColor = colors[index - 1];  // сохраняем выбранный цвет
         }
 
-        static void ChooseFoodSymbol()
+        private static void ChooseFoodSymbol()
         {
             Console.Clear();
             char[] symbols = { '@', '#', '$', '%', '&', '*', '+', '=', '?' };
@@ -99,7 +108,7 @@ namespace TARgv24_C_Sharp.Madu
         }
 
 
-        static void ChooseBackgroundVolume()
+        private static void ChooseBackgroundVolume()
         {
             Console.Clear();
             Console.WriteLine("Set Background Volume (0-100): ");
