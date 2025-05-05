@@ -10,6 +10,7 @@ namespace TARgv24_C_Sharp.Madu
     public class Speed
     {
         public int SpeedValue { get; set; }
+        public int DefaultSpeed { get; set; } = 100;
 
         // Конструктор
         public Speed(int level)
@@ -38,9 +39,9 @@ namespace TARgv24_C_Sharp.Madu
             }
             else
             {
-                SpeedValue = 100;
+                SpeedValue = DefaultSpeed;
             }
         }
     }
-    }
+
 }
