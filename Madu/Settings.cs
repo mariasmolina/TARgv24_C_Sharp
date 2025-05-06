@@ -28,13 +28,21 @@ namespace TARgv24_C_Sharp.Madu
 
         public static void ShowSettings()
         {
-            while (true)
+            bool exit = false;
+
+            while (!exit)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
                 string title = FiggleFonts.Standard.Render("SETTINGS");
-                string[] settingsOptions = { "Snake Color", "Wall Color", "Food Symbol", "Background Volume", "<- Back to Menu" };
+                string[] settingsOptions = { "Snake Color", "Wall Color", "Food Symbol", "Background Volume" };
                 int choice = Keyboard.ChooseOption(title, settingsOptions);
+
+                if (choice == 0)  // если пользователь нажал ESC
+                {
+                    exit = true;
+                    break;
+                }
 
                 if (choice == 1)
                     ChooseSnakeColor();
@@ -44,8 +52,6 @@ namespace TARgv24_C_Sharp.Madu
                     ChooseFoodSymbol();
                 else if (choice == 4)
                     ChooseBackgroundVolume();
-                else if (choice == 5)
-                    break; // выходим в главное меню
             }
         }
 

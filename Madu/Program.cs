@@ -9,8 +9,7 @@ using Figgle;
 
 namespace TARgv24_C_Sharp.Madu
 {
-    /* Класс Program запускает игру "Змейка": создаёт стены, змейку и еду,
-     обрабатывает столкновения, нажатия клавиш и выводит экран окончания игры */
+    /* Класс Program запускает игру */
     class Program
     {
         static void Main(string[] args)

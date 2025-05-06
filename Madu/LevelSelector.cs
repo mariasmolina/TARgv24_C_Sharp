@@ -25,7 +25,14 @@ namespace TARgv24_C_Sharp.Madu
         {
             string title = FiggleFonts.Standard.Render("SELECT LEVEL\n");
             int choice = Keyboard.ChooseOption(title, Levels);
-            SelectedLevel = choice;
+            if (choice == 0)
+            {
+                SelectedLevel = 0;  // если нажал ESC
+            }
+            else
+            {
+                SelectedLevel = choice;
+            }
         }
 
         // Метод для получения названия выбранного уровня

@@ -12,12 +12,12 @@ namespace TARgv24_C_Sharp.Madu
      * обрабатывает столкновения и выводит экран окончания игры */
     public class Game
     {
-        private Sounds _sounds;  // объект звуков, передаётся через конструктор
+        private Sounds GlobalSounds;  // объект звуков, передаётся через конструктор
 
         // конструктор принимает объект звуков
         public Game(Sounds sounds)
         {
-            _sounds = sounds;
+            GlobalSounds = sounds;
         }
 
         // основной метод для запуска игры
@@ -68,15 +68,15 @@ namespace TARgv24_C_Sharp.Madu
                 // проверка столкновения змейки со стеной или с хвостом
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
-                    _sounds.Stop("music");
-                    _sounds.Play("gameover");  // звук окончания игры
+                    GlobalSounds.Stop("music");
+                    GlobalSounds.Play("gameover");  // звук окончания игры
                     Thread.Sleep(2000);
                     break;
                 }
 
                 if (snake.Eat(food))  // если змейка ест еду
                 {
-                    _sounds.PlayEat();  // звук поедания еды
+                    GlobalSounds.PlayEat();  // звук поедания еды
                     food = foodCreator.CreateFood();  // создаём новую еду
                     food.Draw();
                     score.Add(10);  // добавляем очки
@@ -101,7 +101,7 @@ namespace TARgv24_C_Sharp.Madu
             Keyboard.WaitForEsc();  // ждём ESC для выхода
             score.Save();  // сохраняем результат
 
-            _sounds.Play();  // запускаем фоновую музыку снова
+            GlobalSounds.Play();  // запускаем фоновую музыку снова
         }
 
         // метод для вывода текста на экране с позиционированием

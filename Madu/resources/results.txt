@@ -1,3 +1,2 @@
 Andrei:120
 Maria:50
-maria:0

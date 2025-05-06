@@ -61,6 +61,10 @@ namespace TARgv24_C_Sharp.Madu
                         selectedIndex = 0;  // если вышли за нижний предел — переходим в начало
                     }
                 }
+                else if (key == ConsoleKey.Escape)
+                {
+                    return 0;  // при ESC возвращаем 0
+                }
 
             } while (key != ConsoleKey.Enter);  // продолжаем пока не нажата Enter
 
